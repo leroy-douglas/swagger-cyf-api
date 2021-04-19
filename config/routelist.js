@@ -2,5 +2,5 @@ const routeList = [                                   // paths should be relativ
     'routes/city/routes.js'
 ];
 
-console.log("routelist.js :",__dirname)
+//console.log("routelist.js :",__dirname)
 module.exports = routeList;

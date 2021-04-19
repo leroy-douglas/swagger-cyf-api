@@ -4,6 +4,7 @@ console.log("/post - city")
  * @swagger
  * /city:
  *   post:
+ *     tryItOutEnabled: false
  *     summary: Add  a  new city
  *     description: Add a new city
  *     requestBody:

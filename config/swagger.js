@@ -16,7 +16,8 @@ const swaggerDefinition = {
             name: 'Licensed Under MIT',
             url: 'https://spdx.org/licenses/MIT.html',
         },
-    },
+    },    
+    /*
     components: {
         securitySchemes: {
             token: {
@@ -27,23 +28,45 @@ const swaggerDefinition = {
             },
         }
     },
+    
     servers: [
         {
             url: 'http://localhost:4000',
             description: 'Local Development server',
         },
     ],
+    */
+    
 };
+const DisableTryItOutPlugin = function() {
+  return {
+    statePlugins: {
+      spec: {
+        wrapSelectors: {
+          allowTryItOutFor: () => () => false
+        }
+      }
+    }
+  }
+}
 
 const options = {
     swaggerDefinition,
-    apis: routeList
+    apis: routeList   
 };
 
-console.log("swagger.js: ",__dirname)
+const swaggerUiOpts = {
+    swaggerOptions: {
+    tryItOutEnabled: false,
+    // supportedSubmitMethods: []
+  },
+    //customCss: '.swagger-ui .topbar { background-color: blue }'
+}
+
+//console.log("swagger.js: ",__dirname)
 //const swaggerSpec = swaggerJSDoc(options);
 
 router.use('/', serve);
-router.get('/', setup( swaggerJSDoc(options) ));
+router.get('/', setup( swaggerJSDoc(options, swaggerUiOpts) ));
 
 module.exports = router;
