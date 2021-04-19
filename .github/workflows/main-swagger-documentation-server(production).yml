@@ -33,5 +33,5 @@ jobs:
         app-name: Swagger-Documentation-Server
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF38D975ADF843408336EF1D71BE78C3 }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        package: .
 
